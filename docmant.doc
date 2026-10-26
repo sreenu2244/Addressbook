@@ -1,0 +1,75 @@
+
+----------- ADDRESS BOOK PROJECT -------------
+==============================================
+
+What does this project do?
+--------------------------
+This is a small C program for keeping a list of contacts. Each contact has a
+name, phone number, and email address. You can create, search, edit, delete, and
+display contacts using a menu.
+
+Files in the project
+--------------------
+main.c
+    Starts the program, displays the menu, and sends your selection to the
+    matching address-book function.
+
+contact.h
+    Describes what a contact and the address book contain, and lists the
+    functions the program can use. The address book can hold up to 100 contacts.
+
+contact.c
+    Contains the work behind the menu: reading and checking contact details,
+    searching, editing, deleting, displaying, loading, and saving contacts.
+
+contacts.txt
+    Stores contacts as one line per person:
+    name,phone,email
+
+How the program works, step by step
+-----------------------------------
+1. The program starts in main.c.
+2. It creates an empty address book and calls initialize().
+3. initialize() reads saved contacts from contacts.txt, if that file is
+   available.
+4. The program shows a menu and waits for you to choose an option.
+5. It runs the function for your choice:
+      1 - Create a contact
+      2 - Search for a contact
+      3 - Edit a contact's phone and email
+      4 - Delete a contact
+      5 - List all contacts
+      6 - Save the contacts and exit
+6. After most choices, the menu appears again so you can do another task.
+7. When you choose 6, the current contacts are written to contacts.txt and
+   the program closes.
+
+What each menu option does
+--------------------------
+1.Create:
+    Asks for a name, phone number, and email, then checks the entries. Names
+    may contain letters and spaces. Phone numbers must have exactly 10 digits.
+    Emails must contain @ and end in .com. A new contact is added only if all
+    three entries pass these checks.
+
+2.Search:
+    Looks for a name exactly as you entered it. If it finds a match, it prints
+    that person's name, phone number, and email.
+
+3.Edit:
+    Finds a contact by exact name, then asks for a new phone number and email.
+    The name itself is not changed by this option.
+
+4.Delete:
+    Finds a contact by exact name and removes it. The program may move the last
+    contact in the list into the removed contact's place, so the list order can
+    change.
+
+5.List:
+    Prints every contact currently loaded in the address book.
+
+6.Exit:
+    Saves the current contact list to contacts.txt, replacing the file's
+    previous contents, and then closes the program. Choose this option to keep
+    changes made during the current run.
+
